@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Not a Zap">
+    <meta property="og:description" content="This webapp is not for zapping nostr things 😉.">
+    <meta property="og:image" content="https://nostr.build/p/nb11010.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Not a Zap">
+    <meta name="twitter:description" content="This webapp is not for zapping nostr things 😉.">
+    <meta name="twitter:image" content="https://nostr.build/p/nb11010.jpeg">
+
     <title>Not a Zap</title>
     <style>
       body {
@@ -120,6 +129,20 @@
       } else {
         renderNostrZap()
       }
+      const updateOgMetaDescriptionsIfNecessary = () => {
+        if (!npubOrNoteId) {
+          return
+        }
+
+        const ogDescriptionMetaTag = document.querySelector('meta[property="og:description"]')
+        const ogTwitterDescriptionMetaTag = document.querySelector('meta[name="twitter:description"]')
+        const description = `You can't zap ${npubOrNoteId} here 😉.`
+
+        ogDescriptionMetaTag.setAttribute('content', description)
+        ogTwitterDescriptionMetaTag.setAttribute('content', description)
+      }
+
+      updateOgMetaDescriptionsIfNecessary()
 
       const intervalId = setInterval(() => {
         if (!npubOrNoteId) {
