@@ -12,6 +12,26 @@
     <meta name="twitter:title" content="Not a Zap - This app is not for zapping nostr things 😉.">
     <meta name="twitter:description" content="This app is not for zapping nostr things 😉.">
     <meta name="twitter:image" content="https://nostr.build/p/nb11010.jpeg">
+    <script>
+      const updateOgMetaDescriptionsIfNecessary = () => {
+        const url = new URL(window.location);
+        const path = url.pathname;
+        const [npubOrNoteId] = path.split("/").filter((part) => part !== "");
+
+        if (!npubOrNoteId) {
+          return
+        }
+
+        const ogDescriptionMetaTag = document.querySelector('meta[property="og:description"]')
+        const ogTwitterDescriptionMetaTag = document.querySelector('meta[name="twitter:description"]')
+        const description = `You can't zap ${npubOrNoteId} here 😉.`
+
+        ogDescriptionMetaTag.setAttribute('content', description)
+        ogTwitterDescriptionMetaTag.setAttribute('content', description)
+      }
+
+      updateOgMetaDescriptionsIfNecessary()
+    </script>
 
     <title>Not a Zap</title>
     <style>
@@ -129,20 +149,6 @@
       } else {
         renderNostrZap()
       }
-      const updateOgMetaDescriptionsIfNecessary = () => {
-        if (!npubOrNoteId) {
-          return
-        }
-
-        const ogDescriptionMetaTag = document.querySelector('meta[property="og:description"]')
-        const ogTwitterDescriptionMetaTag = document.querySelector('meta[name="twitter:description"]')
-        const description = `You can't zap ${npubOrNoteId} here 😉.`
-
-        ogDescriptionMetaTag.setAttribute('content', description)
-        ogTwitterDescriptionMetaTag.setAttribute('content', description)
-      }
-
-      updateOgMetaDescriptionsIfNecessary()
 
       const intervalId = setInterval(() => {
         if (!npubOrNoteId) {
