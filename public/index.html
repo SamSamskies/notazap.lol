@@ -1,52 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Not a Zap</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      height: 100vh;
-    }
-  </style>
-</head>
-<body>
-<h1>This webapp is not for zapping nostr notes.</h1>
-<p>
-  URL format: https://notazap.lol/&lt;NPUB&gt;/&lt;OPTIONAL_NOTE_ID&gt;
-</p>
-<button>Not a Zap ⚡️</button>
-<script>
-  const url = new URL(window.location);
-  const path = url.pathname;
-  const [npub, noteId] = path.split("/").filter((part) => part !== "");
-  const button = document.querySelector("button");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Not a Zap</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: calc(100vh - 70px);
+      }
+      footer {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        height: 70px;
+        width: 100%;
+        background: lightgrey;
+      }
 
-  button.setAttribute("data-npub", npub);
+      footer p {
+        margin-left: 16px;
+        font-size: 36px;
+        cursor: pointer;
+        padding: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>This webapp is not for zapping nostr notes.</h1>
+      <p>
+        URL format: https://notazap.lol/&lt;NPUB&gt;/&lt;OPTIONAL_NOTE_ID&gt;
+      </p>
+      <button>Not a Zap ⚡️</button>
+    </main>
+    <footer>
+      <a href="https://github.com/SamSamskies/notazap.lol" target="_blank">
+        <img src="/github-mark.png" width="32" height="32" alt="GitHub logo" />
+      </a>
+      <p
+        data-npub="npub1vp8fdcyejd4pqjyrjk9sgz68vuhq7pyvnzk8j0ehlljvwgp8n6eqsrnpsw"
+        title="Click to zap me :)"
+      >
+        ⚡️
+      </p>
+    </footer>
+    <script>
+      const url = new URL(window.location);
+      const path = url.pathname;
+      const [npub, noteId] = path.split("/").filter((part) => part !== "");
+      const button = document.querySelector("button");
 
-  if (noteId) {
-    button.setAttribute("data-note-id", noteId);
-  }
+      button.setAttribute("data-npub", npub);
 
-  const script = document.createElement("script");
+      if (noteId) {
+        button.setAttribute("data-note-id", noteId);
+      }
 
-  script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@0.11.0";
-  script.onload = () => {
-    if (npub) {
-      button.click();
-    }
-  };
+      const script = document.createElement("script");
 
-  document.body.appendChild(script);
-</script>
-</body>
+      script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@0.11.0";
+      script.onload = () => {
+        if (npub) {
+          button.click();
+        }
+      };
+
+      document.body.appendChild(script);
+    </script>
+  </body>
 </html>
-
