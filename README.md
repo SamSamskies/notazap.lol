@@ -1,2 +1,2 @@
 # notazap.lol
-this webapp is not for zapping nostr things
+this webapp is not for zapping nostr things 😉
