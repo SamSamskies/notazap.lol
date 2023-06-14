@@ -2,7 +2,7 @@ import Head from "next/head";
 
 export default function Nip19Entity({ nip19Entity }) {
   const description = `You can't zap ${nip19Entity} here 😉.`;
-  const title = `Not a Zap - ${description}`;
+  const title = "Not a Zap";
   const image = "https://nostr.build/p/nb11010.jpeg";
 
   return (

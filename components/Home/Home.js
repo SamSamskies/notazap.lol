@@ -3,7 +3,7 @@ import Head from "next/head";
 
 export const Home = () => {
   const description = "This app is not for zapping nostr things 😉.";
-  const title = `Not a Zap - ${description}`;
+  const title = "Not a Zap";
   const image = "https://nostr.build/p/nb11010.jpeg";
 
   const handleSubmit = (event) => {
