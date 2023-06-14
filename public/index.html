@@ -20,9 +20,8 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-top: 60px;
+        margin-top: 160px;
         margin-bottom: 100px;
-
       }
       footer {
         text-align: center;
@@ -69,12 +68,11 @@
     </style>
   </head>
   <body>
-    <p>URL format: https://notazap.lol/&lt;NPUB_OR_NOTE_ID&gt;</p>
     <main>
+      <div id="root"></div>
       <div id="nostr-embed" style="visibility: hidden;">
         <p>^ not a zap button</p>
       </div>
-
     </main>
     <footer>
       <a href="https://github.com/SamSamskies/notazap.lol" target="_blank">
@@ -109,16 +107,18 @@
         const a = document.getElementsByTagName("script")[0];
         a.parentNode.insertBefore(n, a);
       };
+      const renderNostrZap = () => {
+        const script = document.createElement("script");
+
+        script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@0.14.0";
+        document.body.appendChild(script)
+      }
 
       if (npubOrNoteId) {
         renderNostrEmded()
         document.getElementById('nostr-embed').style = ''
-      }
-      const renderNostrZap = () => {
-        const script = document.createElement("script");
-
-        script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@0.11.0";
-        document.body.appendChild(script)
+      } else {
+        renderNostrZap()
       }
 
       const intervalId = setInterval(() => {
