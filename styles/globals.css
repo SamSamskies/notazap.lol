@@ -60,3 +60,7 @@ footer p {
     transform: scale(1);
   }
 }
+
+.nostrEmbedCard {
+  border: none !important;
+}
