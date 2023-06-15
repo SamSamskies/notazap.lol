@@ -64,3 +64,10 @@ footer p {
 .nostrEmbedCard {
   border: none !important;
 }
+
+.cardContentMedia > iframe,
+.cardContentMedia > img,
+.cardContentMedia > video {
+  width: 100% !important;
+  margin: 16px 0;
+}
