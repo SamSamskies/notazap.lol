@@ -28,7 +28,7 @@ export default function Document() {
             ⚡️
           </p>
         </footer>
-        <script src="/initScript.js" />
+        <script type="module" src="/initScript.js" />
       </body>
     </Html>
   );

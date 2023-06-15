@@ -29,7 +29,10 @@ export const Home = () => {
         <meta name="twitter:image" content={image} />
       </Head>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input className={styles.input} placeholder="Enter npub or note ID" />
+        <input
+          className={styles.input}
+          placeholder="Enter npub, nevent, note ID"
+        />
         <button className={styles.button} type="submit">
           Go
         </button>
