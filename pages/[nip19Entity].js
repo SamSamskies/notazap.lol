@@ -1,7 +1,11 @@
 import Head from "next/head";
 
 export default function Nip19Entity({ nip19Entity }) {
-  const description = `You can't zap ${nip19Entity} here 😉.`;
+  const truncateNip19Entity = () =>
+    `${nip19Entity.substring(0, 12)}...${nip19Entity.substring(
+      nip19Entity.length - 12
+    )}`;
+  const description = `You can't zap ${truncateNip19Entity()} here 😉.`;
   const title = "Not a Zap";
   const image = "https://nostr.build/p/nb11010.jpeg";
 
