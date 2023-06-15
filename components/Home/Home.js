@@ -4,7 +4,6 @@ import Head from "next/head";
 export const Home = () => {
   const description = "This app is not for zapping nostr things 😉.";
   const title = "Not a Zap";
-  const image = "https://nostr.build/p/nb11010.jpeg";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,11 +21,14 @@ export const Home = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta
+          property="og:image"
+          content="https://nostr.build/p/nb11010.jpeg"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
+        <meta name="twitter:image" content="https://i.imgur.com/cyXR7M1.jpg" />
       </Head>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
