@@ -1,7 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  margin: 100px 0 170px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 body > p {
   text-align: center;
@@ -11,17 +18,18 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  flex-grow: 1;
+  margin-top: 100px;
 }
 footer {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
   height: 70px;
   width: 100%;
   background: lightgrey;
+  margin-top: 200px;
 }
 
 footer p {
