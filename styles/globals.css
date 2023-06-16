@@ -108,6 +108,9 @@ html[data-theme="dark"] .nostrEmbedCard {
 html[data-theme="dark"] .profileName a,
 html[data-theme="dark"] #nostr-embed .copyIcon,
 html[data-theme="dark"] #nostr-embed .linkIcon,
+html[data-theme="dark"] #nostr-embed .replyIcon,
+html[data-theme="dark"] #nostr-embed .repostIcon,
+html[data-theme="dark"] #nostr-embed .heartIcon,
 html[data-theme="dark"] #nostr-embed .displayText {
   color: var(--color);
 }
