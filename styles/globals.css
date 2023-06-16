@@ -1,3 +1,27 @@
+:root {
+  --background-color: rgb(247, 247, 245);
+  --color: rgb(52, 53, 65);
+}
+
+:root[data-theme="dark"] {
+  --background-color: rgb(52, 53, 65);
+  --color: rgb(236, 236, 241);
+}
+
+html {
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+html[data-theme="dark"] {
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+html[data-theme="dark"] a {
+  color: rgb(122, 59, 255);
+}
+
 html,
 body {
   height: 100%;
@@ -26,15 +50,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
+  height: 60px;
   width: 100%;
   background: lightgrey;
   margin-top: 200px;
 }
 
+html[data-theme="dark"] footer {
+  background: rgb(68, 70, 84);
+}
+
 footer p {
   margin-left: 16px;
-  font-size: 36px;
+  font-size: 32px;
   cursor: pointer;
   padding: 8px 0;
 }
@@ -73,9 +101,56 @@ footer p {
   border: none !important;
 }
 
+html[data-theme="dark"] .nostrEmbedCard {
+  background-color: hsla(0, 0%, 100%, 0.05);
+}
+
+html[data-theme="dark"] .profileName a,
+html[data-theme="dark"] #nostr-embed .copyIcon,
+html[data-theme="dark"] #nostr-embed .linkIcon,
+html[data-theme="dark"] #nostr-embed .displayText {
+  color: var(--color);
+}
+
 .cardContentMedia > iframe,
 .cardContentMedia > img,
 .cardContentMedia > video {
   width: 100% !important;
   margin: 16px 0;
+}
+
+#github-logo {
+  fill: #24292f;
+}
+
+html[data-theme="dark"] #github-logo {
+  fill: dimgray;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(52, 53, 65);
+    color: rgb(236, 236, 241);
+  }
+
+  html[data-theme="light"] body {
+    background-color: var(--background-color);
+    color: var(--color);
+  }
+
+  footer {
+    background: rgb(68, 70, 84);
+  }
+
+  html[data-theme="light"] footer {
+    background: lightgrey;
+  }
+
+  #github-logo {
+    fill: dimgray;
+  }
+
+  html[data-theme="light"] #github-logo {
+    fill: #24292f;
+  }
 }
