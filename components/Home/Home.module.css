@@ -20,6 +20,11 @@
   flex-grow: 1;
 }
 
+html[data-theme="dark"] .input {
+  background-color: rgb(64, 65, 79);
+  color: rgb(236, 236, 241);
+}
+
 .input:focus {
   outline: none;
   box-shadow: 0 0 0 2px #7f00ff;
@@ -42,4 +47,16 @@
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .input {
+    background-color: rgb(64, 65, 79);
+    color: rgb(236, 236, 241);
+  }
+
+  html[data-theme="light"] .input {
+    background-color: #f7fafc;
+    color: #1a202c;
+  }
 }
