@@ -157,3 +157,9 @@ html[data-theme="dark"] #github-logo {
     fill: #24292f;
   }
 }
+
+@media (max-width: 480px) {
+  main {
+    margin-top: 16px;
+  }
+}
