@@ -38,9 +38,10 @@ if (typeof window !== "undefined") {
   const url = new URL(window.location);
   const path = url.pathname;
   const [param] = path.split("/").filter((part) => part !== "");
-  const npubOrNoteId = param?.startsWith("nevent")
-    ? extractNoteId(param)
-    : param;
+  const normalizedParam = param?.replace(/^nostr:/, "");
+  const npubOrNoteId = normalizedParam?.startsWith("nevent")
+    ? extractNoteId(normalizedParam)
+    : normalizedParam;
   const renderNostrEmded = () => {
     const n = document.createElement("script");
     n.type = "text/javascript";
