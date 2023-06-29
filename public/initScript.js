@@ -70,7 +70,7 @@ if (typeof window !== "undefined") {
   const renderNostrZap = () => {
     const script = document.createElement("script");
 
-    script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@0.15.0";
+    script.src = "https://cdn.jsdelivr.net/npm/nostr-zap@0.16.0";
     document.body.appendChild(script);
   };
 
