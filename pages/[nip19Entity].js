@@ -7,17 +7,18 @@ export default function Nip19Entity({ nip19Entity }) {
     )}`;
   const description = `You can't zap ${truncateNip19Entity()} here 😉.`;
   const title = "Not a Zap";
+  const ogImage = `https://notazap.lol/api/og?nip19Entity=${nip19Entity}`;
 
   return (
     <Head>
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="https://nostr.build/p/nb11010.jpeg" />
+      <meta property="og:image" content={ogImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="https://i.imgur.com/cyXR7M1.jpg" />
+      <meta name="twitter:image" content={ogImage} />
     </Head>
   );
 }
