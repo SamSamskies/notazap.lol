@@ -1,4 +1,5 @@
 import { ImageResponse } from "@vercel/og";
+import { QRCodeSVG } from "qrcode.react";
 
 export const config = {
   runtime: "edge",
@@ -49,23 +50,37 @@ export default async function handler(req) {
                 fontSize: 32,
               }}
             >
-              <img
-                width="256"
-                height="256"
-                src={content.picture || nostrichAvatar}
-                style={{
-                  borderRadius: "50%",
-                }}
-                alt="avatar"
-              />
+              <div style={{ display: "flex" }}>
+                <QRCodeSVG
+                  value={`nostr:${nip19Entity}`}
+                  includeMargin
+                  size={424}
+                />
+                <img
+                  width="2"
+                  height="256"
+                  src={content.picture || nostrichAvatar}
+                  style={{
+                    position: "absolute",
+                    borderRadius: "50%",
+                    height: 80,
+                    width: 80,
+                    left: 172,
+                    top: 172,
+                    border: "4px solid white",
+                  }}
+                  alt="avatar"
+                />
+              </div>
               <p
                 style={{
                   fontSize: content.display_name || content.name ? 48 : 32,
+                  margin: 8,
                 }}
               >
                 {content.display_name || content.name || data.pubkey}
               </p>
-              {content.lud16 && <div>{content.lud16}</div>}
+              <div>{nip19Entity}</div>
             </div>
           )
         )

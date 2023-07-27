@@ -7,7 +7,7 @@ export default function Nip19Entity({ nip19Entity }) {
     )}`;
   const description = `You can't zap ${truncateNip19Entity()} here 😉.`;
   const title = "Not a Zap";
-  const ogImage = `https://notazap.lol/api/og?nip19Entity=${nip19Entity}`;
+  const ogImage = `https://notazap.lol/api/og?nip19Entity=${nip19Entity}&v2`;
 
   return (
     <Head>
