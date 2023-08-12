@@ -1,8 +1,8 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+export default function Document({ __NEXT_DATA__ }) {
   return (
-    <Html lang="en">
+    <Html lang="en" data-theme={__NEXT_DATA__.props.pageProps.cachedTheme}>
       <Head />
       <body>
         <Main />

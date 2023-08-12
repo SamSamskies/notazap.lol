@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { getCachedTheme } from "@/utils";
 
 export default function Nip19Entity({ nip19Entity }) {
   const truncateNip19Entity = () =>
@@ -23,8 +24,8 @@ export default function Nip19Entity({ nip19Entity }) {
   );
 }
 
-export const getServerSideProps = ({ params }) => {
+export const getServerSideProps = ({ params, req }) => {
   const { nip19Entity } = params;
 
-  return { props: { nip19Entity } };
+  return { props: { nip19Entity, cachedTheme: getCachedTheme(req) } };
 };

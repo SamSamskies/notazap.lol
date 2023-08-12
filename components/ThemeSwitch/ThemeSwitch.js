@@ -1,13 +1,13 @@
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useDarkMode } from "./useDarkMode";
+import { useTheme } from "./useTheme";
 
-export const ThemeSwitch = () => {
-  const [isDarkMode, setDarkMode] = useDarkMode();
+export const ThemeSwitch = ({ cachedTheme }) => {
+  const [theme, updateTheme] = useTheme(cachedTheme);
 
   return (
     <DarkModeSwitch
-      checked={isDarkMode}
-      onChange={() => setDarkMode((prev) => !prev)}
+      checked={theme === "dark"}
+      onChange={(isDarkMode) => updateTheme(isDarkMode ? "dark" : "light")}
       sunColor="#FF9900"
       moonColor="black"
     />
