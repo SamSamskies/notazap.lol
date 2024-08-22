@@ -104,6 +104,10 @@ if (typeof window !== "undefined") {
         nostrZapTarget.setAttribute("data-note-id", npubOrNoteId);
       }
 
+      document
+        .querySelector(".nostrichLink  a")
+        .setAttribute("href", "https://njump.me");
+
       clearInterval(intervalId);
       renderNostrZap();
     } catch {}
